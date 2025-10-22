@@ -1,0 +1,165 @@
+:root {
+  --color-primary: #2563EB;
+  --color-secondary: #F59E0B;
+  --color-success: #F59E0B;
+  --color-error: #EF4444;
+  --color-background: #f9fafb;
+  --color-surface: #ffffff;
+  --color-text: #111827;
+
+  --gradient-bg: linear-gradient(135deg, rgba(37, 99, 235, 0.10), rgba(249, 250, 251, 1));
+  --radius: 16px;
+
+  --shadow-sm: 0 1px 2px rgba(17, 24, 39, 0.06), 0 1px 1px rgba(17, 24, 39, 0.04);
+  --shadow-md: 0 4px 10px rgba(17, 24, 39, 0.08), 0 2px 4px rgba(17, 24, 39, 0.06);
+  --shadow-lg: 0 10px 24px rgba(17, 24, 39, 0.10), 0 6px 12px rgba(17, 24, 39, 0.08);
+
+  --focus-ring: 0 0 0 3px rgba(37, 99, 235, 0.35);
+}
+
+html, body, #app {
+  height: 100%;
+}
+
+body {
+  background: var(--gradient-bg);
+  color: var(--color-text);
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  justify-items: center;
+  padding: 24px;
+}
+
+.surface-card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 24px;
+}
+
+/* Buttons */
+.button {
+  appearance: none;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-weight: 600;
+  color: white;
+  background: var(--color-primary);
+  box-shadow: var(--shadow-md);
+  transition: transform 120ms ease, box-shadow 180ms ease, background 180ms ease, opacity 180ms ease;
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.button:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-md), var(--focus-ring);
+}
+
+.button.secondary {
+  background: var(--color-secondary);
+  color: #1f2937;
+}
+
+.button.ghost {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid rgba(17, 24, 39, 0.08);
+}
+
+/* Utility */
+.center {
+  display: grid;
+  place-items: center;
+}
+
+.stack {
+  display: grid;
+  gap: 16px;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .2px;
+  box-shadow: var(--shadow-sm);
+}
+
+.badge.primary {
+  background: rgba(37, 99, 235, .1);
+  color: var(--color-primary);
+}
+
+.badge.success {
+  background: rgba(245, 158, 11, .12);
+  color: var(--color-secondary);
+}
+
+.badge.error {
+  background: rgba(239, 68, 68, .12);
+  color: var(--color-error);
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #374151;
+}
+
+/* Dino decorative ring */
+.dino-wrap {
+  position: relative;
+}
+
+.dino-ring {
+  position: absolute;
+  inset: -28px;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 24px;
+  background: radial-gradient(120px 120px at 0% 0%, rgba(37,99,235,0.12), transparent 60%),
+              radial-gradient(140px 140px at 100% 0%, rgba(245,158,11,0.10), transparent 60%),
+              radial-gradient(120px 120px at 0% 100%, rgba(37,99,235,0.08), transparent 60%),
+              radial-gradient(140px 140px at 100% 100%, rgba(245,158,11,0.08), transparent 60%);
+  filter: blur(0.2px);
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    padding: 12px;
+  }
+}

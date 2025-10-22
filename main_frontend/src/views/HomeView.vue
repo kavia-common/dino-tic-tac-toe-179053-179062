@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import TicTacToeBoard from '@/components/TicTacToeBoard.vue'
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
+  <main class="center" style="padding: 16px;">
+    <TicTacToeBoard />
   </main>
 </template>
