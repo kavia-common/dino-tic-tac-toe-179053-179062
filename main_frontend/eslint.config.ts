@@ -16,15 +16,28 @@ export default defineConfigWithVueTs(
 
   {
     name: 'app/files-to-ignore',
-    ignores: ['**/dist/**', '**/dist-ssr/**', '**/coverage/**'],
+    ignores: ['**/dist/**', '**/dist-ssr/**', '**/coverage/**', '**/node_modules/**'],
   },
 
   pluginVue.configs['flat/essential'],
   vueTsConfigs.recommended,
-  
+
   {
     ...pluginVitest.configs.recommended,
     files: ['src/**/__tests__/*'],
   },
+
+  // Project-level rules: keep minimal and Prettier-compatible
+  {
+    rules: {
+      // TypeScript: allow implicit any in Vue SFC props/inferred generics to reduce noise
+      '@typescript-eslint/no-explicit-any': 'off',
+      // Common ergonomics
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn'
+    }
+  },
+
+  // Disable all stylistic rules in favor of Prettier
   skipFormatting,
 )

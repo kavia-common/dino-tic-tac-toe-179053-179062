@@ -8,7 +8,7 @@ import TicTacToeBoard from './components/TicTacToeBoard.vue'
     <main class="center">
       <TicTacToeBoard />
     </main>
-    <footer class="center" style="margin-top: 20px;">
+    <footer class="center" style="margin-top: 20px">
       <small style="color:#6b7280">Built with Ocean Professional theme • 🦖</small>
     </footer>
   </div>
