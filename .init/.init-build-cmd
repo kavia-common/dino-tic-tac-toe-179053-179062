@@ -1,0 +1,4 @@
+{
+    "command": "npm install && npm run type-check && npm run test:unit -- --run",
+    "working_directory": "/home/kavia/workspace/code-generation/dino-tic-tac-toe-179053-179062/main_frontend"
+}
